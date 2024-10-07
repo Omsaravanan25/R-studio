@@ -1,0 +1,361 @@
+2. Arithmetic and Logical operations
+#ARITHMETIC OPERATOR
+#ADDITION OPERATOR
+a <- c (1, 0.1)
+b <- c (2.33, 4)
+print (a+b)
+OUTPUT:
+
+#SUBRACTION OPERATOR
+a <- c (1, 0.1)
+b <- c (2.33, 4)
+print (a-b)
+OUTPUT:
+
+#MULTIPLICATION OPERATOR
+b <- c(4,4,2)
+C <- c(5,5,2)
+print (B*C)
+OUTPUT:
+
+#DIVISION OPERATOR
+a <- c(10,20,40)
+b <- c(5,3,4)
+print (a/b)
+OUTPUT:
+
+#MODULO OPERATOR
+n <- c(2, 22)
+m <-c(2,4)
+print(n %% m)
+OUTPUT:
+
+#POWER OPERATOR
+a <- c(4,5,10)
+b <- c(5)
+print(a^b)
+OUTPUT:
+
+#LOGICAL OPERATOR
+#AND operator
+list1 <- c(TRUE, 0.1)
+list2 <- c(0,4+3i)
+print(list1 & list2)
+OUTPUT:
+
+#OR Operator
+x <- c(TRUE, 0.1)
+y <- c(TRUE,6)
+print(list1|list2)
+OUTPUT:
+
+#NOT Operator
+list1 <- c(0,FALSE)
+print(!list1)
+OUTPUT:
+
+3.Advanced Functions in R
+abs Function:
+x<- c(32,45,26,30,56)
+print(abs(x))
+output: 
+sqrt Function:
+x<- c(32,45,26,30,56)
+print(sqrt(x))
+output:
+
+ceiling Function:
+x<- c(32,45,26,30,56)
+print(ceiling(x))
+output: 
+floor Function:
+x<- c(32,45,26,30,56)
+print(floor(x))
+output: 
+trunc Function:
+x<- c(32,45,26,30,56)
+print(trunc(x))
+output: 
+cos Function:
+x<- c(32,45,26,30,56)
+print(cos(x))
+output: 
+Sin Function:
+x<- c(32,45,26,30,56)
+print(sin(x))
+output: 
+Cos Function:
+x<- c(32,45,26,30,56)
+print(tan(x))
+output: 
+log Function:
+x<- c(32,45,26,30,56)
+print(log(x))
+output: 
+Range Function:
+x<- c(32,45,26,30,56)
+print(range(x))
+output: 
+max Function:
+x<- c(32,45,26,30,56)
+print(max(x))
+output: 
+min Function:
+x<- c(32,45,26,30,56)
+print(min(x))
+output: 
+mean Function:
+x<- c(32,45,26,30,56)
+print(mean(x))
+output: 
+4.Vectors, Arrays and Matrixes
+#VECTOR
+vector_a <- c(1, 2, 3, 4, 5)
+vector_b <- c(6, 7, 8, 9, 10)
+
+# Sum of vectors
+vector_sum <- vector_a + vector_b
+
+# Element-wise product of vectors
+vector_product <- vector_a * vector_b
+
+# Print the vectors and the results
+print(vector_a)
+print(vector_b)
+print(vector_sum)
+print(vector_product)
+
+#ARRAY
+array_data <- array(1:24, dim = c(2, 3, 4))
+
+element_123 <- array_data[1, 2, 3]
+
+slice_2 <- array_data[, , 2]
+
+print(array_data)
+
+print(element_123)
+
+ print(slice_2)
+
+#MATRIX
+
+# Create the matrix
+matrix_data <- matrix(1:9, nrow = 3, byrow = TRUE)
+
+# Transpose the matrix
+matrix_transpose <- t(matrix_data)
+
+# Sum of all elements in the matrix
+matrix_sum <- sum(matrix_data)
+
+# Print the matrix, transpose, and sum
+print(matrix_data)
+print(matrix_transpose)
+print(matrix_sum)
+
+5.Data frame and list
+
+df <- data.frame(
+
+Name = c("Alice", "Bob", "Charlie"),
+
+Age = c(25, 30, 35),
+
+Salary = c(50000, 60000, 70000)
+
+)
+
+print(df)
+
+#Access specific column 'Age'
+
+print(df$Age)
+
+#Access specific row (2nd row):\n")
+
+print(df[2, ])
+
+#Access specific element (Age of 2nd person)
+
+print(df[2, "Age"])
+
+my_list <- list(
+Names = c("Alice", "Bob", "Charlie"),
+
+Ages = c(25, 30, 35), Salaries = c(50000, 60000, 70000),
+
+Status = TRUE
+
+)
+
+print(my_list)
+
+#Access specific element 'Names'
+
+print(my_list$Names)
+
+#Access specific element 'Ages'
+
+print(my_list[[2]])
+6. IMPORT AND EXPORT
+//import program
+data <- read.csv("filename.csv")
+data
+
+//export data
+df = data.frame(
+  "name"= c('a','b'),
+  "dep" = c(1,2)
+  )
+write.table(df,
+            file="myfiles.txt",
+            sep="\t",
+            row.names = TRUE,
+            col.names=NA)   
+
+7.LINEAR AND LOGISTIC
+#LINEAR
+# Load necessary libraries
+library(ggplot2)
+data(employee_data)
+linear_model <- lm(Salary ~ ID, data = employee_data)
+summary(linear_model)
+ggplot(employee_data, aes(x = ID, y = Salary)) +geom_point() + geom_smooth(method = "lm", color = "blue") +labs(title = "Linear Regression",x = "ID",y = "Salary")
+#LOGISTIC
+# Load the ggplot2 library
+library(ggplot2)
+# Load the iris dataset
+data(iris)
+# Convert Species into a binary outcome (e.g., setosa vs. not setosa)
+iris$BinarySpecies <- ifelse(iris$Species == "setosa", 1, 0)
+# Fit the logistic regression model
+model <- glm(BinarySpecies ~ Sepal.Length + Sepal.Width + Petal.Length + Petal.Width, data = iris,family = binomial)
+# Create a new data frame with a range of Sepal.Length values
+new_data <- data.frame(
+  Sepal.Length = seq(min(iris$Sepal.Length), max(iris$Sepal.Length), length.out = 100),
+  Sepal.Width = mean(iris$Sepal.Width),  
+  Petal.Length = mean(iris$Petal.Length),
+  Petal.Width = mean(iris$Petal.Width))
+# Predict probabilities for the new data
+new_data$Probability <- predict(model, new_data, type = "response")
+# Plot the logistic regression curve
+ggplot(new_data, aes(x = Sepal.Length, y = Probability)) +geom_line(color = "blue", size = 1) +labs(title = "Logistic Regression ",x = "Sepal Length",y = "Probability of Being Setosa") +theme_minimal()
+
+8.DECISION TREE
+# Install and load necessary packages
+install.packages("rpart")
+install.packages("rpart.plot")
+install.packages("caret")
+
+
+library(rpart)
+library(rpart.plot)
+library(caret)
+
+# Load the heart disease dataset
+heart_data <- read.csv("heart.csv")
+
+# Assign column names based on dataset description
+colnames(heart_data) <- c("age", "sex", "cp", "trestbps", "chol", "fbs", "restecg", "thalach", "exang", "oldpeak", "slope", "ca", "thal", "target")
+
+# Inspect the dataset
+head(heart_data)
+str(heart_data)
+summary(heart_data)
+
+# Split the dataset into training and testing sets
+set.seed(123)
+trainIndex <- createDataPartition(heart_data$target, p = 0.7, list = FALSE)
+train_data <- heart_data[trainIndex, ]
+test_data <- heart_data[-trainIndex, ]
+
+decision_tree_model <- rpart(target ~ ., data = train_data, method = "class")
+
+# Print the model summary
+print(decision_tree_model)
+
+# Plot the decision tree
+rpart.plot(decision_tree_model)
+
+9.CLUSTERING TECHINQUE
+library(ggplot2)
+
+set.seed(123)
+data <- rbind(
+  cbind(rnorm(100, mean = 0), rnorm(100, mean = 0)),   # Cluster 1
+  cbind(rnorm(100, mean = 3), rnorm(100, mean = 3)),   # Cluster 2
+  cbind(rnorm(100, mean = 6), rnorm(100, mean = 6))    # Cluster 3
+)
+colnames(data) <- c("X1", "X2")
+# Plot the sample data
+ggplot(data = as.data.frame(data), aes(x = X1, y = X2)) +geom_point(alpha = 0.5) +labs(title = "Sample Data")
+# Apply K-means clustering
+set.seed(123)
+k <- 3  
+kmeans_result <- kmeans(data, centers = k)
+print(kmeans_result)
+data_with_clusters <- as.data.frame(data)
+data_with_clusters$cluster <- as.factor(kmeans_result$cluster)
+ggplot(data_with_clusters, aes(x = X1, y = X2, color = cluster)) +geom_point(alpha = 0.5) +labs(title = "K-Means Clustering Results") +scale_color_discrete(name = "Cluster")
+
+10.VISULIZE DATA USING PLOTS
+install.packages("data.table")
+
+library(data.table)
+
+# Create a large data table
+n <- 1e6  # Number of rows
+big_data <- data.table(
+  id = 1:n,
+  value = rnorm(n)
+)
+
+# Perform operations on the big data
+summary_stats <- big_data[, .(
+  mean_value = mean(value),
+  sd_value = sd(value)
+)]
+print(summary_stats)
+
+# Save big data to a file
+fwrite(big_data, "big_data.csv")
+
+# Load big data from a file
+loaded_data <- fread("big_data.csv")
+# Install ggplot2 if not already installed
+install.packages("ggplot2")
+
+# Load the ggplot2 package
+library(ggplot2)
+
+# Create a sample dataset
+data <- data.frame(
+  x = rnorm(100),
+  y = rnorm(100)
+)
+
+# Scatter plot
+ggplot(data, aes(x = x, y = y)) +
+  geom_point() +
+  labs(title = "Scatter Plot of Random Data",
+       x = "X Axis",
+       y = "Y Axis") +
+  theme_minimal()
+# Install lattice if not already installed
+install.packages("lattice")
+
+# Load the lattice package
+library(lattice)
+
+# Create a sample dataset
+data <- data.frame(
+  group = factor(rep(letters[1:3], each = 50)),
+  value = rnorm(150)
+)
+
+# Boxplot
+bwplot(group ~ value, data = data,
+       main = "Boxplot of Values by Group",
+       xlab = "Group",
+       ylab = "Value")
